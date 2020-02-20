@@ -26,7 +26,7 @@ dependencies:
   #图片现在库
   cupertino_icons: ^0.1.2
   image_picker: ^0.6.3+1
-
+  url_launcher: ^5.0.2
 dev_dependencies:   #开发环境下的依赖
   flutter_test:
     sdk: flutter
