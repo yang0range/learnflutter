@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -34,13 +33,21 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('MaterialApp示例'),
+        centerTitle: true,
+        //是否居中
+        elevation: 0,
+        //阴影
+        actions: <Widget>[Icon(Icons.more), Icon(Icons.search)],
+        leading: Icon(Icons.star),
       ),
+
       body: _widgetOptions.elementAt(_currentIndex),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, '/other');
         },
-        tooltip: '路由跳转',//长按提示
+        tooltip: '路由跳转',
+        //长按提示
         foregroundColor: Color(0xffffffff),
         backgroundColor: Color(0xff000000),
         //阴影
@@ -79,6 +86,7 @@ class _HomePageState extends State<HomePage> {
           });
         },
       ),
+
     );
   }
 }
@@ -89,6 +97,46 @@ class OtherPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('OtherPage'),
+      ),
+      drawer: Drawer(
+//        elevation: 0,
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Demo"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    'https://github.com/yang0range/flutterfile/blob/master/flutter.png'),
+              ),
+              accountEmail: Text("yangzcorange@163.com",style:
+                TextStyle(
+                  color: Colors.black
+                ),),
+              otherAccountsPictures: <Widget>[Icon(Icons.camera_alt)],
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/one.jpg"))),
+            ),
+            ListTile(
+              leading: Icon(Icons.payment),
+              title: Text("Demo"),
+            ),
+            ListTile(
+              leading: Icon(Icons.payment),
+              title: Text("Demo"),
+            ),
+            ListTile(
+              leading: Icon(Icons.payment),
+              title: Text("Demo"),
+            ),
+            AboutListTile(
+              icon: Icon(Icons.error),
+              child: Text("关于"),
+              applicationName: 'Demo_Yang',
+              applicationVersion: '1.0',
+            )
+          ],
+        ),
       ),
     );
   }
