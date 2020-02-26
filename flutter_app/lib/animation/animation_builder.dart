@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage>
   void initState() {
     super.initState();
     _animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+        AnimationController(vsync: this, duration: const Duration(seconds: 10));
     _doubleAnim = Tween(begin: -1.0, end: 0.0).animate(CurvedAnimation(
         parent: _animationController, curve: Curves.fastOutSlowIn))
       ..addStatusListener(myListener);
